@@ -27,7 +27,7 @@
     in
     {
       overlays.default = final: prev: {
-        xdg-desktop-portal-umbriel = final.callPackage ./nix/package.nix { };
+        xdg-desktop-portal-mango = final.callPackage ./nix/package.nix { };
       };
 
       packages = forEachSystem (
@@ -41,7 +41,7 @@
         { pkgs, system, ... }:
         {
           default = pkgs.callPackage ./nix/devshell.nix {
-            xdg-desktop-portal-umbriel = self.packages.${system}.default;
+            xdg-desktop-portal-mango = self.packages.${system}.default;
           };
         }
       );
