@@ -35,14 +35,14 @@ namespace xdpu {
     std::filesystem::path configPath() {
       if (const char* xdgConfigHome = std::getenv("XDG_CONFIG_HOME");
           xdgConfigHome != nullptr && xdgConfigHome[0] != '\0') {
-        return std::filesystem::path(xdgConfigHome) / "xdg-desktop-portal-umbriel" / "config.toml";
+        return std::filesystem::path(xdgConfigHome) / "xdg-desktop-portal-mango" / "config.toml";
       }
 
       if (const char* home = std::getenv("HOME"); home != nullptr && home[0] != '\0') {
-        return std::filesystem::path(home) / ".config" / "xdg-desktop-portal-umbriel" / "config.toml";
+        return std::filesystem::path(home) / ".config" / "xdg-desktop-portal-mango" / "config.toml";
       }
 
-      return std::filesystem::path(".config") / "xdg-desktop-portal-umbriel" / "config.toml";
+      return std::filesystem::path(".config") / "xdg-desktop-portal-mango" / "config.toml";
     }
 
     std::filesystem::path normalized(const std::filesystem::path& path) {

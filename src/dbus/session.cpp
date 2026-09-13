@@ -429,7 +429,7 @@ namespace xdpu {
     }
 
     return sdbus::Variant{
-        sdbus::Struct<std::string, uint32_t, sdbus::Variant>{"umbriel", uint32_t{1}, sdbus::Variant{entries}}
+        sdbus::Struct<std::string, uint32_t, sdbus::Variant>{"mango", uint32_t{1}, sdbus::Variant{entries}}
     };
   }
 

@@ -136,7 +136,7 @@ namespace xdpu {
         return {};
       }
 
-      if (std::get<0>(restore) != "umbriel" || std::get<1>(restore) != 1) {
+      if (std::get<0>(restore) != "mango" || std::get<1>(restore) != 1) {
         return {};
       }
 
@@ -265,12 +265,12 @@ namespace xdpu {
 
     std::filesystem::path stateFilePath() {
       if (const char* state = std::getenv("XDG_STATE_HOME"); state != nullptr && *state != '\0') {
-        return std::filesystem::path{state} / "xdg-desktop-portal-umbriel" / "restore.json";
+        return std::filesystem::path{state} / "xdg-desktop-portal-mango" / "restore.json";
       }
       if (const char* home = std::getenv("HOME"); home != nullptr && *home != '\0') {
-        return std::filesystem::path{home} / ".local" / "state" / "xdg-desktop-portal-umbriel" / "restore.json";
+        return std::filesystem::path{home} / ".local" / "state" / "xdg-desktop-portal-mango" / "restore.json";
       }
-      return std::filesystem::path{"/tmp"} / "xdg-desktop-portal-umbriel-restore.json";
+      return std::filesystem::path{"/tmp"} / "xdg-desktop-portal-mango-restore.json";
     }
 
     void savePersistentRestore(const std::string& token, const std::vector<Session::Selection>& selections) {

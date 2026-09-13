@@ -18,7 +18,7 @@ namespace xdpu {
 
   namespace {
 
-    constexpr char kBusName[] = "org.freedesktop.impl.portal.desktop.umbriel";
+    constexpr char kBusName[] = "org.freedesktop.impl.portal.desktop.mango";
     constexpr char kDesktopPath[] = "/org/freedesktop/portal/desktop";
 
     uint32_t pollEventsToEpoll(short events) {

@@ -168,7 +168,7 @@ namespace {
     const char* runtimeDir = std::getenv("XDG_RUNTIME_DIR");
     const char* waylandDisplay = std::getenv("WAYLAND_DISPLAY");
     if (runtimeDir != nullptr && runtimeDir[0] != '\0' && waylandDisplay != nullptr && waylandDisplay[0] != '\0') {
-      return std::string(runtimeDir) + "/umbriel-" + waylandDisplay + ".sock";
+      return std::string(runtimeDir) + "/mango-" + waylandDisplay + ".sock";
     }
     return {};
   }
@@ -227,10 +227,10 @@ namespace {
     static const std::string style = [] {
       GError* error = nullptr;
       GBytes* bytes =
-          g_resources_lookup_data("/dev/noctalia/umbriel/picker/style.css", G_RESOURCE_LOOKUP_FLAGS_NONE, &error);
+          g_resources_lookup_data("/dev/noctalia/mango/picker/style.css", G_RESOURCE_LOOKUP_FLAGS_NONE, &error);
       if (bytes == nullptr) {
         std::cerr
-            << "umbriel-share-picker: unable to load style resource: "
+            << "mango-share-picker: unable to load style resource: "
             << (error != nullptr ? error->message : "unknown error")
             << '\n';
         g_clear_error(&error);
@@ -406,7 +406,7 @@ namespace {
         }
       }
     } catch (const json::exception& error) {
-      std::cerr << "umbriel-share-picker: invalid request JSON: " << error.what() << '\n';
+      std::cerr << "mango-share-picker: invalid request JSON: " << error.what() << '\n';
     }
 
     return state;
@@ -880,7 +880,7 @@ namespace {
     GtkWidget* window = gtk_application_window_new(app);
     state->window = window;
     state->display = gtk_widget_get_display(window);
-    gtk_widget_add_css_class(window, "umbriel-picker");
+    gtk_widget_add_css_class(window, "mango-picker");
     gtk_window_set_title(GTK_WINDOW(window), "Share a screen or window");
     gtk_window_set_default_size(GTK_WINDOW(window), 760, 560);
 
