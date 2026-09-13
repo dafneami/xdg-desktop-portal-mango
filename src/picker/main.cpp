@@ -15,6 +15,8 @@
 #include <sys/un.h>
 #include <unistd.h>
 #include <vector>
+#include <fstream>
+#include <sstream>
 
 using json = nlohmann::json;
 
@@ -223,25 +225,34 @@ namespace {
     return fd;
   }
 
-  const std::string& pickerStyleTemplate() {
+  std::string pickerStyleTemplate() {
+    // Try to load from external file first
+    const char* home = getenv("HOME");
+    if (home != nullptr) {
+        std::string configDir = std::string(home) + "/.config/mango";
+        std::string cssPath = configDir + "/xdg-desktop-portal-mango.css";
+        std::ifstream file(cssPath);
+        if (file.is_open()) {
+            std::stringstream buffer;
+            buffer << file.rdbuf();
+            return buffer.str();
+        }
+    }
+    // Fallback to original resource loading
     static const std::string style = [] {
-      GError* error = nullptr;
-      GBytes* bytes =
-          g_resources_lookup_data("/dev/noctalia/mango/picker/style.css", G_RESOURCE_LOOKUP_FLAGS_NONE, &error);
-      if (bytes == nullptr) {
-        std::cerr
-            << "mango-share-picker: unable to load style resource: "
-            << (error != nullptr ? error->message : "unknown error")
-            << '\n';
-        g_clear_error(&error);
+        const char* home = getenv("HOME");
+        if (home != nullptr) {
+            std::string configDir = std::string(home) + "/.config/mango";
+            std::string cssPath = configDir + "/xdg-desktop-portal-mango.css";
+            std::ifstream file(cssPath);
+            if (file.is_open()) {
+                std::stringstream buffer;
+                buffer << file.rdbuf();
+                return buffer.str();
+            }
+        }
+        std::cerr << "mango-share-picker: unable to load CSS from external file: $HOME/.config/mango/xdg-desktop-portal-mango.css\n";
         return std::string{};
-      }
-
-      gsize size = 0;
-      const auto* data = static_cast<const char*>(g_bytes_get_data(bytes, &size));
-      std::string result(data, size);
-      g_bytes_unref(bytes);
-      return result;
     }();
     return style;
   }

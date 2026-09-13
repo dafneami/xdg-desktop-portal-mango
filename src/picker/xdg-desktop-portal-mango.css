@@ -1,9 +1,8 @@
 .mango-picker {
-  background-color: @BACKGROUND@;
-  color: @TEXT_PRIMARY@;
+  background-color: #2e3440;
+  color: #eceff4;
 }
 
-/* The compositor owns the outer contour, including border and corner clipping. */
 .mango-picker,
 .mango-picker decoration {
   border-radius: 0;
@@ -18,7 +17,7 @@
 }
 
 .mango-picker .dim-label {
-  color: @TEXT_MUTED@;
+  color: #d8dee9;
   opacity: 1;
 }
 
@@ -38,31 +37,31 @@
 
 .mango-picker .source-card {
   padding: 3px;
-  border: 2px solid alpha(@TEXT_PRIMARY@, 0.12);
-  border-radius: @RADIUS@;
-  background: alpha(@TEXT_PRIMARY@, 0.035);
-  color: @TEXT_PRIMARY@;
+  border: 2px solid alpha(#4c566a, 0.22);
+  border-radius: 24px;
+  background: alpha(#4c566a, 0.135);
+  color: #eceff4;
   outline-offset: 2px;
 }
 
 .mango-picker .source-card:hover {
-  border-color: @ACCENT_SECONDARY@;
-  background: alpha(@ACCENT_SECONDARY@, 0.08);
+  border-color: #88c0d0;
+  background: alpha(#88c0d0, 0.08);
 }
 
 .mango-picker .source-card:selected {
-  border-color: @ACCENT_PRIMARY@;
-  background: alpha(@ACCENT_PRIMARY@, 0.12);
+  border-color: #5e81ac;
+  background: alpha(#5e81ac, 0.12);
 }
 
 .mango-picker .source-card:focus-visible {
-  outline: 2px solid @ACCENT_SECONDARY@;
+  outline: 2px solid #88c0d0;
 }
 
 .mango-picker .preview {
-  background: alpha(@TEXT_PRIMARY@, 0.06);
-  color: @TEXT_MUTED@;
-  border-radius: @RADIUS@;
+  background: alpha(#eceff4, 0.06);
+  color: #d8dee9;
+  border-radius: 24px;
 }
 
 .mango-picker .preview-caption,
@@ -77,9 +76,9 @@
 .mango-picker .selection-check {
   margin: 8px;
   padding: 4px;
-  border-radius: @RADIUS@;
-  background: @ACCENT_PRIMARY@;
-  color: @BACKGROUND@;
+  border-radius: 24px;
+  background: #5e81ac;
+  color: #2e3440;
   opacity: 0;
 }
 
@@ -89,16 +88,16 @@
 
 .mango-picker .picker-footer {
   padding: 16px 24px;
-  border-top: 1px solid alpha(@TEXT_PRIMARY@, 0.12);
+  border-top: 1px solid alpha(#eceff4, 0.12);
 }
 
 /* Reset theme gradients and shadows as well as colors, including interaction states. */
 .mango-picker button {
   background-image: none;
-  background-color: alpha(@TEXT_PRIMARY@, 0.07);
-  color: @TEXT_PRIMARY@;
-  border: 1px solid alpha(@TEXT_PRIMARY@, 0.15);
-  border-radius: @RADIUS@;
+  background-color: alpha(#eceff4, 0.07);
+  color: #eceff4;
+  border: 1px solid alpha(#eceff4, 0.15);
+  border-radius: 24px;
   box-shadow: none;
   text-shadow: none;
   padding: 9px 18px;
@@ -107,42 +106,42 @@
 
 .mango-picker button:hover {
   background-image: none;
-  background-color: alpha(@ACCENT_SECONDARY@, 0.16);
-  border-color: @ACCENT_SECONDARY@;
+  background-color: alpha(#88c0d0, 0.16);
+  border-color: #88c0d0;
 }
 
 .mango-picker button:checked,
 .mango-picker button:active {
   background-image: none;
-  background-color: alpha(@ACCENT_PRIMARY@, 0.18);
-  border-color: @ACCENT_PRIMARY@;
-  color: @TEXT_PRIMARY@;
+  background-color: alpha(#5e81ac, 0.18);
+  border-color: #5e81ac;
+  color: #eceff4;
 }
 
 .mango-picker button.suggested-action {
   background-image: none;
-  background-color: @ACCENT_PRIMARY@;
-  border-color: @ACCENT_PRIMARY@;
-  color: @BACKGROUND@;
+  background-color: #5e81ac;
+  border-color: #5e81ac;
+  color: #2e3440;
 }
 
 .mango-picker button.suggested-action:hover,
 .mango-picker button.suggested-action:active {
-  background-color: @ACCENT_SECONDARY@;
-  border-color: @ACCENT_SECONDARY@;
+  background-color: #88c0d0;
+  border-color: #88c0d0;
 }
 
 .mango-picker button:disabled,
 .mango-picker button.suggested-action:disabled {
   background-image: none;
-  background-color: alpha(@TEXT_PRIMARY@, 0.06);
+  background-color: alpha(#eceff4, 0.06);
   border-color: transparent;
-  color: @TEXT_MUTED@;
+  color: #d8dee9;
   opacity: 0.55;
 }
 
 .mango-picker button:focus-visible {
-  outline: 2px solid @ACCENT_SECONDARY@;
+  outline: 2px solid #88c0d0;
   outline-offset: 2px;
 }
 
@@ -156,13 +155,13 @@
 }
 
 .mango-picker scrollbar slider {
-  background-color: alpha(@TEXT_MUTED@, 0.5);
+  background-color: alpha(#d8dee9, 0.5);
   background-clip: padding-box;
-  border-radius: @RADIUS@;
+  border-radius: 24px;
   min-width: 5px;
   min-height: 5px;
 }
 
 .mango-picker scrollbar slider:hover {
-  background-color: alpha(@TEXT_MUTED@, 0.8);
+  background-color: alpha(#d8dee9, 0.8);
 }
